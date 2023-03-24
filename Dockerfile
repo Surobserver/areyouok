@@ -11,15 +11,9 @@ RUN echo 'cd /root' >>/luo.sh
 RUN echo "su root -l -c 'vncserver :2000 ' "  >>/luo.sh
 RUN echo 'cd /noVNC-1.2.0' >>/luo.sh
 RUN echo './utils/launch.sh  --vnc localhost:7900 --listen 80 ' >>/luo.sh
-RUN echo root:laoluoshushu|chpasswd
 RUN chmod 755 /luo.sh
-RUN apt install ssh wget npm -y
-RUN  npm install -g wstunnel
-RUN mkdir /run/sshd 
-RUN echo 'wstunnel -s 0.0.0.0:443 &' >>/1.sh
-RUN echo '/usr/sbin/sshd -D' >>/1.sh
+RUN service ssh start
 RUN echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config 
 RUN echo root:192168|chpasswd
-RUN chmod 755 /1.sh
 EXPOSE 80 443
 CMD  /luo.sh

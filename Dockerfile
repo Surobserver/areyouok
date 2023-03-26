@@ -12,7 +12,6 @@ RUN echo "su root -l -c 'vncserver :2000 ' "  >>/luo.sh
 RUN echo 'cd /noVNC-1.2.0' >>/luo.sh
 RUN echo './utils/launch.sh  --vnc localhost:7900 --listen 7777 ' >>/luo.sh
 RUN chmod 755 /luo.sh
-RUN service ssh start
 RUN echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config 
 RUN echo root:192168|chpasswd
 EXPOSE 80 443 7777
